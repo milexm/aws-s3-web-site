@@ -13,6 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"/>
 	<link rel="stylesheet" type="text/css" href="../cs/mystyle.css" />
+	<script type='text/javascript' src='../js/utilities.js'></script>
 	<script type='text/javascript' src='http://www.youtube.com/iframe_api'></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"/></script>
 	
@@ -47,16 +48,7 @@
 	 ***/
 	function loadCsvFile(file) {
 		
-		var hostName = window.location.hostname;
-		
-		if (hostName != "localhost") {
-			// Production path.
-			webPath = "http://acloudysky.s3-website-us-west-2.amazonaws.com/";
-		}
-		else {
-			// Testing path.
-			webPath = "http://localhost:8080/aws-s3-web-site/";
-		}
+		 webPath = getWebPath();
 		
 		// Build the file path.
 		filePath = webPath + file;
